@@ -33,11 +33,11 @@
     <?php if(isset($_SESSION['admin'])): ?>
     <a href="<?=base_url?>categoria/index">Gestionar Categorías</a>
     <a href="<?=base_url?>producto/gestion">Gestionar Productos</a>
-    <a href="<?=base_url?>pedido/">Gestionar Pedidos</a>
+    <a href="<?=base_url?>pedido/gestion">Gestionar Pedidos</a>
     <?php endif; ?>
 
     <?php if( isset($_SESSION['identity']) ): ?>
-    <a href="<?=base_url?>pedido/">Mis pedidos</a>
+    <a href="<?=base_url?>pedido/mis_pedidos">Mis pedidos</a>
     <a href="<?=base_url?>usuario/logout" class="red">Cerrar Sesión</a>
     <?php else: ?> 
     <a href="<?=base_url?>usuario/registro">Registrate</a>

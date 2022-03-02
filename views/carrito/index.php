@@ -1,11 +1,17 @@
 <h1>Carrito de compras</h1>
 
+<?php if( isset($_SESSION['carrito']) && count($_SESSION['carrito']) >= 1 ): ?>
+
+<a href="<?=base_url?>carrito/delete_all" class="button-small button-red">Vaciar Carrito</a>
+<br/><br/>
+
 <table>
     <tr>
         <th>Imagen</th>
         <th>Nombre</th>
         <th>Precio</th>
         <th>Unidades</th>
+        <th>Actions</th>
     </tr>
 
     <?php foreach($carrito as $indice => $elemento): 
@@ -22,15 +28,28 @@
             <td>
                 <a href="<?=base_url?>/producto/ver&id=<?=$producto->id?>"><?=$producto->nombre?></a>
             </td>
-            <td><?=$producto->precio?></td>
-            <td><?=$elemento['unidades']?></td>
+            <td>$<?=$producto->precio?></td>
+            <td>
+                <a href="<?=base_url?>carrito/up&index=<?=$indice?>" class="button-op">+</a>
+                <?=$elemento['unidades']?>
+                <a href="<?=base_url?>carrito/down&index=<?=$indice?>" class="button-op">-</a>
+            </td>
+            <td>
+                <a href="<?=base_url?>carrito/delete&index=<?=$indice?>" class="button-small button-red">Eliminar</a>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
 
-<br/>
+<br/><br/>
 <?php $stats = Utils::statsCarrito(); ?>
 <h3>Precio Total: $<?=$stats['total'];?> mx.</h3>
 
-<br>
-<a href="" class="button-small">Realizar Pedido</a>
+<br/>
+<a href="<?=base_url?>pedido/hacer" class="button-small">Realizar Pedido</a>
+<br/><br/><br/>
+
+<?php else: ?>
+    <p>El carrito esta vacio. Agrega algun producto</p>
+
+<?php endif; ?>
