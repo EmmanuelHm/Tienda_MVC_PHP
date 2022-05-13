@@ -88,7 +88,7 @@ class Producto{
     }
 
     public function getAllCategory(){
-        $sql = "SELECT p.*, c.nombre FROM productos p "
+        $sql = "SELECT p.*, c.nombre AS 'catnombre' FROM productos p "
                 . "INNER JOIN categorias c ON c.id = p.categoria_id "
                 . "WHERE p.categoria_id = {$this->getCategoriaId()} "
                 . "ORDER BY id DESC";

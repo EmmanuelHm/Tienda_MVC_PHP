@@ -50,6 +50,5 @@
 <br/><br/><br/>
 
 <?php else: ?>
-    <p>El carrito esta vacio. Agrega algun producto</p>
-
+    <p>El carrito esta vacio. Agrega algún producto</p>
 <?php endif; ?>

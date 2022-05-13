@@ -40,6 +40,7 @@ class pedidoController{
 
                 if($save && $save_linea){
                     $_SESSION['pedido'] = "Complete";
+                    Utils::deleteSession('carrito');
                 }
                 else{
                     $_SESSION['pedido'] = "Failed";
